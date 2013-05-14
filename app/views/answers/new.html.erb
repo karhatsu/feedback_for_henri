@@ -5,7 +5,7 @@ Arvostan suuresti palautettasi tekemästäni työstä. Pyydän sinua vastaamaan 
 t: Henri
 </p>
 
-<%= form_for @answer do |f| %>
+<%= form_for [@project, @answer] do |f| %>
   <%= f.hidden_field :project_id %>
   <div>
     <%= f.label :status_id, 'Asema' %><br/>

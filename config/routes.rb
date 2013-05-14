@@ -1,6 +1,7 @@
 FeedbackForHenri::Application.routes.draw do
-  resources :projects
-  resources :answers
+  resources :projects do
+    resources :answers
+  end
   
   root 'welcome#index'
 end
