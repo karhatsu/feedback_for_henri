@@ -1,1 +1,11 @@
-<%= @project.key %>
+<h1>Palautetta Henrille</h1>
+
+<p>
+Arvostan suuresti palautettasi tekemästäni työstä. Pyydän sinua vastaamaan alla olevaan kolmeen kysymykseen.
+t: Henri
+</p>
+
+Asema:
+<% @statuses.each do |status| %>
+  <input type="radio" value="<%=status.id%>"><%=status.name%>
+<% end %>
