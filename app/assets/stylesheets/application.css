@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+.error {
+  color: red;
+}
+
+.question {
+  padding: 10px;
+}
+
+.field_with_errors {
+  display: inline;
+  color: red;
+}
