@@ -12,9 +12,9 @@ t: Henri
 <%= form_for [@project, @answer] do |f| %>
   <%= f.hidden_field :project_id %>
   <div class="question">
-    1. <%= f.label :status_id, 'Asema' %><br/>
-    <% @statuses.each do |status| %>
-      <%= f.radio_button :status_id, status.id %><%=status.name%>
+    1. <%= f.label :role_id, 'Rooli' %><br/>
+    <% @roles.each do |role| %>
+      <%= f.radio_button :role_id, role.id %><%= role.name %>
     <% end %>
   </div>
   <div class="question">

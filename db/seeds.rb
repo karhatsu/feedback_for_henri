@@ -1,5 +1,5 @@
 # encoding: UTF-8
-Status.create(name: 'Kehittäjä/testaaja')
-Status.create(name: 'Jokin muu')
+Role.create(name: 'Kehittäjä/testaaja')
+Role.create(name: 'Jokin muu')
 
 Project.create(key: 'test-project')

@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
   belongs_to :project
-  belongs_to :status
+  belongs_to :role
   
-  validates :status_id, :presence => true
+  validates :role_id, :presence => true
   validates :score, :presence => true
 end
