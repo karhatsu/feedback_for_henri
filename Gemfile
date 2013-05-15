@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '4.0.0.rc1'
-gem 'sqlite3', group: [:development, :test]
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -11,6 +10,11 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'thin'
+end
 
 group :production do
   gem 'pg'
