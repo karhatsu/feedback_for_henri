@@ -3,5 +3,9 @@ FeedbackForHenri::Application.routes.draw do
     resources :answers
   end
   
+  namespace :admin do
+    resources :projects
+  end
+  
   root 'welcome#index'
 end

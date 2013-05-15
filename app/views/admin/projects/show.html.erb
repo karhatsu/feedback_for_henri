@@ -1,0 +1,12 @@
+<h1>Projekti: <%= @project.key %></h1>
+<h2>Vastaukset</h2>
+<ul>
+  <% @project.answers.each do |answer| %>
+    <li><%= answer.score %> (<%= answer.role.name %>)</li>
+    <% unless answer.comment.blank? %>
+      <ul>
+        <li><%= answer.comment %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</ul>
