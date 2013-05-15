@@ -1,4 +1,5 @@
 <h1>Projekti: <%= @project.key %></h1>
+<input type="text" value="<%= new_project_answer_url(@project) %>" size="100"/>
 <h2>Vastaukset</h2>
 <ul>
   <% @project.answers.each do |answer| %>
