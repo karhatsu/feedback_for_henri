@@ -11,4 +11,15 @@
   <% end %>
 </ul>
 <h2>Net promoter score</h2>
-<%= @project.net_promoter_score %>
+<table>
+  <tr>
+    <td>Kaikki</td>
+    <td><%= @project.net_promoter_score %></td>
+  </tr>
+<% Role.all.each do |role| %>
+  <tr>
+    <td><%= role.name %></td>
+    <td><%= @project.net_promoter_score(role.id) %></td>
+  </tr>
+<% end %>
+</table>

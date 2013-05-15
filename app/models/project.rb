@@ -7,12 +7,18 @@ class Project < ActiveRecord::Base
     "#{id}-#{key}"
   end
   
-  def net_promoter_score
-    return nil if answers.empty?
+  def net_promoter_score(role_id=nil)
+    return calculate_nps(answers.where(:role_id => role_id)) if role_id
+    calculate_nps(answers)
+  end
+  
+  private
+  def calculate_nps(selected_answers)
+    return nil if selected_answers.empty?
     negatives = 0
     neutrals = 0
     positives = 0
-    answers.each do |answer|
+    selected_answers.each do |answer|
       if answer.score >= 9
         positives = positives + 1
       elsif answer.score == 7 or answer.score == 8
