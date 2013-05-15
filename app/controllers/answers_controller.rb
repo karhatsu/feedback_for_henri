@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
     @project = Project.find(params[:project_id])
     @answer = Answer.new(params.require(:answer).permit(:project_id, :role_id, :score, :comment))
     if @answer.save
+      AnswerMailer.answered(@answer).deliver
       redirect_to project_answers_path
     else
       flash[:error] = 'Vastaathan vähintään kahteen ensimmäiseen kysymykseen.'
