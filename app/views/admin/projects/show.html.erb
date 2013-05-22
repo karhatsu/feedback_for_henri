@@ -15,12 +15,12 @@
 <table>
   <tr>
     <td>Kaikki</td>
-    <td><%= @project.net_promoter_score %></td>
+    <td><%= @project.net_promoter_score.to_i %></td>
   </tr>
 <% Role.all.each do |role| %>
   <tr>
     <td><%= role.name %></td>
-    <td><%= @project.net_promoter_score(role.id) %></td>
+    <td><%= @project.net_promoter_score(role.id).to_i %></td>
   </tr>
 <% end %>
 </table>
