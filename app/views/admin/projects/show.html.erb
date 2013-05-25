@@ -2,8 +2,8 @@
 <input type="text" value="<%= new_project_answer_url(@project) %>" size="100"/>
 <h2>Vastaukset</h2>
 <ul>
-  <% @project.answers.each do |answer| %>
-    <li><%= answer.score %> (<%= answer.role.name %>)</li>
+  <% @project.answers.order('created_at asc').each do |answer| %>
+    <li><%= answer.score %> (<%= answer.role.name %>, <%= answer.created_at.strftime('%d.%m.%Y %H:%M:%S') %>)</li>
     <% unless answer.comment.blank? %>
       <ul>
         <li><%= answer.comment %></li>
