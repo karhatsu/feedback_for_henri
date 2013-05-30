@@ -11,20 +11,27 @@ t: Henri
 
 <%= form_for [@project, @answer] do |f| %>
   <%= f.hidden_field :project_id %>
+  <% roles = @project.roles %>
+  <% if roles.count == 1 %>
+    <%= f.hidden_field :role_id, value: roles.first.id %>
+  <% elsif roles.count == 0 %>
+    <% raise "No roles for the project!" %>
+  <% else %>
+    <div class="question">
+      <%= f.label :role_id, 'Palautteen antajan rooli' %><br/>
+      <% @project.roles.each do |role| %>
+        <%= f.radio_button :role_id, role.id %><%= role.name %>
+      <% end %>
+    </div>
+  <% end %>
   <div class="question">
-    1. <%= f.label :role_id, 'Palautteen antajan rooli' %><br/>
-    <% @project.roles.each do |role| %>
-      <%= f.radio_button :role_id, role.id %><%= role.name %>
-    <% end %>
-  </div>
-  <div class="question">
-    2. <%= f.label :score, 'Kuinka todennäköisesti suosittelisit minua kollegallesi johonkin toiseen projektiin?' %><br/>
+    <%= f.label :score, 'Kuinka todennäköisesti suosittelisit minua kollegallesi johonkin toiseen projektiin?' %><br/>
     <% 0.upto(10) do |i| %>
       <%= f.radio_button :score, i %><%= i %>
     <% end %>
   </div>
   <div class="question">
-    3. <%= f.label :comment, 'Jos annoit vähemmän kuin 10, mitä minun kannattaisi parantaa työssäni?' %><br/>
+    <%= f.label :comment, 'Jos annoit vähemmän kuin 10, mitä minun kannattaisi parantaa työssäni?' %><br/>
     <%= f.text_area :comment, :rows => 10, :cols => 50 %>
   </div>
   <%= submit_tag 'Lähetä palaute' %>
