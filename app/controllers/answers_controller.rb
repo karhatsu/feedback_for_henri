@@ -5,7 +5,6 @@ class AnswersController < ApplicationController
   
   def new
     @project = Project.find(params[:project_id])
-    @roles = Role.all
     @answer = @project.answers.new
   end
   
@@ -17,7 +16,6 @@ class AnswersController < ApplicationController
       redirect_to project_answers_path
     else
       flash[:error] = 'Vastaathan vähintään kahteen ensimmäiseen kysymykseen.'
-      @roles = Role.all
       render :new
     end
   end

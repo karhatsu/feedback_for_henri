@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   has_many :answers
+  has_and_belongs_to_many :roles
   
   validates :key, :presence => true
   

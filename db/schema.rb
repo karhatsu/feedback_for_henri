@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130515132824) do
+ActiveRecord::Schema.define(version: 20130530163314) do
 
   create_table "answers", force: true do |t|
     t.integer  "project_id"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20130515132824) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "projects_roles", primary_key: "false", force: true do |t|
+    t.integer "project_id"
+    t.integer "role_id"
+  end
+
+  add_index "projects_roles", ["project_id"], name: "index_projects_roles_on_project_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

@@ -13,7 +13,7 @@ t: Henri
   <%= f.hidden_field :project_id %>
   <div class="question">
     1. <%= f.label :role_id, 'Palautteen antajan rooli' %><br/>
-    <% @roles.each do |role| %>
+    <% @project.roles.each do |role| %>
       <%= f.radio_button :role_id, role.id %><%= role.name %>
     <% end %>
   </div>
