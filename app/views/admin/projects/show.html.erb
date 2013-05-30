@@ -14,20 +14,26 @@
 <h2>Net promoter score</h2>
 <table>
   <tr>
-    <th>Rooli</th>
+    <% unless @project.roles.count == 1 %>
+      <th>Rooli</th>
+    <% end %>
     <th>Kpl</th>
     <th>Net promoter score</th>
   </tr>
   <tr>
-    <td>Kaikki</td>
+    <% unless @project.roles.count == 1 %>
+      <td>Kaikki</td>
+    <% end %>
     <td class="center"><%= @project.answers.count %></td>
     <td class="center"><%= @project.net_promoter_score.to_i %></td>
   </tr>
-<% Role.all.each do |role| %>
-  <tr>
-    <td><%= role.name %></td>
-    <td class="center"><%= @project.answers.where(role: role).count %></td>
-    <td class="center"><%= @project.net_promoter_score(role.id).to_i %></td>
-  </tr>
+<% unless @project.roles.count == 1 %>
+  <% Role.all.each do |role| %>
+    <tr>
+      <td><%= role.name %></td>
+      <td class="center"><%= @project.answers.where(role: role).count %></td>
+      <td class="center"><%= @project.net_promoter_score(role.id).to_i %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
