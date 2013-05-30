@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
       send_answer_email @answer
       redirect_to project_answers_path
     else
-      flash[:error] = 'Vastaathan vähintään kahteen ensimmäiseen kysymykseen.'
+      flash[:error] = 'Vastaus puuttuu'
       render :new
     end
   end
