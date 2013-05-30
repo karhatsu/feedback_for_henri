@@ -25,7 +25,7 @@ t: Henri
     </div>
   <% end %>
   <div class="question">
-    <%= f.label :score, 'Kuinka todennäköisesti suosittelisit minua kollegallesi johonkin toiseen projektiin?' %><br/>
+    <%= f.label :score, @project.question %><br/>
     <% 0.upto(10) do |i| %>
       <%= f.radio_button :score, i %><%= i %>
     <% end %>

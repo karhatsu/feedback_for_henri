@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130530163314) do
+ActiveRecord::Schema.define(version: 20130530165853) do
 
   create_table "answers", force: true do |t|
     t.integer  "project_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130530163314) do
     t.string   "key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question",   default: "Kuinka todennäköisesti suosittelisit minua kollegallesi johonkin toiseen projektiin?", null: false
   end
 
   create_table "projects_roles", primary_key: "false", force: true do |t|
